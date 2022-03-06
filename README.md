@@ -37,9 +37,10 @@ Following steps were followed to build a binary classification neural network mo
 ### 2. Using the model-fit-predict pattern to compile and evaluate a binary classification model.
 
   * Create a deep neural network by assigning the `number of input features`, the `number of layers`,
-  the `number of neurons` on each layer using Tensorflow’s Keras and the `activation` function.
-  * Compile and fit the model `(nn)`using `the binary_crossentropy loss function`, the `adam optimizer`, and the
-   `accuracy evaluation` metric.  
+  the `number of neurons` on each layer using Tensorflow’s Keras,the `relu` activation function for hidden
+  layers and `sigmoid` activation function for outer layer.
+  * Compile and fit the model `(nn)`using `the binary_crossentropy loss function`, the `adam optimizer`, 
+   and the`accuracy evaluation` metric.  
    * Evaluate the model using the test data to determine the model’s loss and accuracy.
 
 
@@ -52,26 +53,26 @@ Following steps were followed to build a binary classification neural network mo
    *When designing a deep neural network, it is best to start with two hidden layers. Then, continue adding
    additional layers until the model’s performance no longer improves over the same number of
    epochs.*
-   * Here,the original model was created with two hidden layers and now the new model `nn_A1` is tried with three hidden
-   layers wherein the model was run with 50 and then 100 epochs. The model performed best at 50 epochs and
-   the performance dropped with 100 epochs.
+   * Here,the original model was created with two hidden layers and now the new model `nn_A1` is tried with
+   three hidden layers wherein the model was run with 50 and then 100 epochs. The model performed best at
+   50 epochs and the performance dropped with 100 epochs.
    
 ####   2. Reduce the features
    Adjust the input data by dropping different features columns to ensure that no variables or outliers
    confuse the model.
-   * During preprocessing of data for the original model two columns i.e. "EIN", "NAME" were dropped as they do 
-   not  have any effect on performance and success of a startup. Now for the optimization of the model, we
-   have dropped two more columns i.e. "STATUS" and "SPECIAL_CONSIDERATIONS" as they seem to have less 
-   relevance and may confuse the model. The categorical variable columns of the reduced features data are
-   then encoded and further all features scaled and used to create and fit a new network model `nn_A2`.
+   * During preprocessing of data for the original model two columns i.e. "EIN", "NAME" were dropped as 
+   they do not  have any effect on performance and success of a startup. Now for the optimization of the 
+   model, we have dropped two more columns i.e. "STATUS" and "SPECIAL_CONSIDERATIONS" as they seem to have
+   less relevance and may confuse the model. The categorical variable columns of the reduced features data
+   are then encoded and further all features scaled and used to create and fit a new network model `nn_A2`.
    
 ####   3. Add more neurons (nodes) to a hidden layer.
    *The total number of neurons across all hidden layers should be ⅔ the size of the input layer (size of 
    input layer = number of features), plus the size of the output layer (size of output layer = number of
    neurons on the output layer).Alternatively, the total number of neurons across all hidden layers should
    be less than twice the size of the number of features in the input layer.*
-   * The third optimization model `nn_A3` was created with addition of two nodes(neurons) to all the three hidden 
-   layers which was then run with 50, 100 and 150 epochs where it performed best at 150 epochs.
+   * The third optimization model `nn_A3` was created with addition of two nodes(neurons) to all the three
+   hidden layers which was then run with 50, 100 and 150 epochs where it performed best at 150 epochs.
    
    
  ### Summary of Results:
